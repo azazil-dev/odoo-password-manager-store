@@ -1,5 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_password_store_account_admin,password.store.account admin,model_password_store_account,password_manager_store.group_password_store_admin,1,1,1,1
-access_password_store_category_admin,password.store.category admin,model_password_store_category,password_manager_store.group_password_store_admin,1,1,1,1
-access_password_store_tag_admin,password.store.tag admin,model_password_store_tag,password_manager_store.group_password_store_admin,1,1,1,1
 access_password_store_access_log_admin,password.store.access.log admin,model_password_store_access_log,password_manager_store.group_password_store_admin,1,1,1,0
+access_password_store_set_user_password_wizard_admin,password.store.set.user.password.wizard admin,model_password_store_set_user_password_wizard,password_manager_store.group_password_store_admin,1,1,1,1

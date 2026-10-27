@@ -5,9 +5,13 @@
 [![Price](https://img.shields.io/badge/Price-%2415%20USD-0284C7.svg?style=flat-square)](https://apps.odoo.com)
 [![Security](https://img.shields.io/badge/Security-Fernet%20AES--128--CBC-DC2626.svg?style=flat-square)](https://cryptography.io/en/latest/fernet/)
 
-**Centralized, military-grade encrypted credential storage built natively for Odoo 17 (Community & Enterprise).**
+**Store, view, and copy Odoo user passwords and external credentials — all encrypted, all audited.**
 
-Manage company credentials — social media accounts, server root logins, database secrets, payment gateways, and third-party SaaS APIs — in one unified, protected vault inside Odoo. Fully restricted to authorized administrators with an immutable audit trail for every reveal and copy action.
+Manage company credentials in two ways:
+- **User Passwords:** Automatically captures Odoo user passwords when set or changed by an administrator. Reveal or copy them later without resetting.
+- **External Accounts:** Store social media, server root logins, database secrets, payment gateways, and third-party SaaS API credentials.
+
+All access is restricted to authorized administrators with a tamper-proof audit trail for every reveal and copy action.
 
 ---
 

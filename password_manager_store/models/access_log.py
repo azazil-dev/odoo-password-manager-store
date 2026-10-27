@@ -9,34 +9,30 @@ class PasswordStoreAccessLog(models.Model):
     _description = 'Password Store Audit Log'
     _order = 'create_date desc'
 
-    # Read-only — no write/unlink for anyone from UI
     user_id = fields.Many2one(
         'res.users',
-        string='User',
+        string='Admin',
         required=True,
         readonly=True,
         ondelete='restrict',
     )
-    account_id = fields.Many2one(
-        'password.store.account',
-        string='Account',
+    target_user_id = fields.Many2one(
+        'res.users',
+        string='User',
         readonly=True,
         ondelete='set null',
+        help='The user whose password was accessed.',
     )
     account_name = fields.Char(
-        string='Account Name',
+        string='User Name',
         readonly=True,
-        help='Stored separately so the log survives account deletion.',
+        help='Stored separately so the log survives user deletion.',
     )
     action = fields.Selection(
         selection=[
-            ('create', 'Create'),
-            ('write', 'Write'),
-            ('show', 'Show Password'),
-            ('copy', 'Copy Password'),
-            ('show_backup', 'Show Backup Codes'),
-            ('copy_backup', 'Copy Backup Codes'),
-            ('unlink', 'Delete'),
+            ('user_write', 'Set Password'),
+            ('user_show', 'Show Password'),
+            ('user_copy', 'Copy Password'),
         ],
         string='Action',
         required=True,
@@ -45,7 +41,7 @@ class PasswordStoreAccessLog(models.Model):
     ip_address = fields.Char(string='IP Address', readonly=True)
 
     # ------------------------------------------------------------------ #
-    # Protect the log: no one can edit or delete entries via the ORM      #
+    # Protect the log                                                    #
     # ------------------------------------------------------------------ #
     def write(self, vals):
         raise AccessError(_("Audit log entries cannot be modified."))
@@ -54,12 +50,10 @@ class PasswordStoreAccessLog(models.Model):
         raise AccessError(_("Audit log entries cannot be deleted."))
 
     # ------------------------------------------------------------------ #
-    # Helper used by account.py                                           #
+    # Helper                                                             #
     # ------------------------------------------------------------------ #
     @api.model
-    def _log(self, account, action):
-        """Create an audit log entry. Call with sudo() from account methods."""
-        request = self.env.get('request')
+    def _get_ip(self):
         ip = None
         try:
             from odoo.http import request as http_request
@@ -67,11 +61,15 @@ class PasswordStoreAccessLog(models.Model):
                 ip = http_request.httprequest.remote_addr
         except Exception:
             pass
+        return ip
 
+    @api.model
+    def _log_user_password(self, target_user, action):
+        """Create an audit log entry for a user password action."""
         self.sudo().create({
             'user_id': self.env.uid,
-            'account_id': account.id if account else False,
-            'account_name': account.name if account else False,
+            'target_user_id': target_user.id if target_user else False,
+            'account_name': target_user.name if target_user else False,
             'action': action,
-            'ip_address': ip,
+            'ip_address': self._get_ip(),
         })
