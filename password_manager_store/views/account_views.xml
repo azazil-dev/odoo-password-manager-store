@@ -46,7 +46,7 @@
         <field name="name">password.store.account.list</field>
         <field name="model">password.store.account</field>
         <field name="arch" type="xml">
-            <tree string="Accounts" decoration-muted="not active">
+            <list string="Accounts" decoration-muted="not active">
                 <field name="active" invisible="1"/>
                 <field name="name"/>
                 <field name="category_id" optional="show"/>
@@ -57,7 +57,7 @@
                 <field name="responsible_id" optional="show"/>
                 <field name="company_id" optional="hide" groups="base.group_multi_company"/>
                 <!-- password is intentionally NOT listed here -->
-            </tree>
+            </list>
         </field>
     </record>
 

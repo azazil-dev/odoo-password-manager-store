@@ -6,10 +6,10 @@
         <field name="name">password.store.category.list</field>
         <field name="model">password.store.category</field>
         <field name="arch" type="xml">
-            <tree string="Categories" editable="bottom">
+            <list string="Categories" editable="bottom">
                 <field name="name"/>
                 <field name="account_count" string="Accounts"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -39,10 +39,10 @@
         <field name="name">password.store.tag.list</field>
         <field name="model">password.store.tag</field>
         <field name="arch" type="xml">
-            <tree string="Tags" editable="bottom">
+            <list string="Tags" editable="bottom">
                 <field name="name"/>
                 <field name="color" widget="color_picker"/>
-            </tree>
+            </list>
         </field>
     </record>
 

@@ -12,6 +12,5 @@
         <field name="name">Password Store Administrator</field>
         <field name="category_id" ref="module_category_password_manager"/>
         <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
-        <field name="comment">Full access to Password Manager Store: create, edit, view, and copy credentials. All actions are recorded in the audit log.</field>
     </record>
 </odoo>

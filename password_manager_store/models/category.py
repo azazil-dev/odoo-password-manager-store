@@ -16,11 +16,11 @@ class PasswordStoreCategory(models.Model):
     active = fields.Boolean(default=True)
 
     def _compute_account_count(self):
-        data = self.env['password.store.account'].read_group(
+        data = self.env['password.store.account']._read_group(
             [('category_id', 'in', self.ids)],
-            ['category_id'],
-            ['category_id'],
+            groupby=['category_id'],
+            aggregates=['__count'],
         )
-        counts = {d['category_id'][0]: d['category_id_count'] for d in data}
+        counts = {cat.id: count for cat, count in data}
         for rec in self:
             rec.account_count = counts.get(rec.id, 0)

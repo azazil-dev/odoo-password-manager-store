@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Password Manager Store',
-    'version': '17.0.1.0.0',
+    'version': '18.0.1.0.0',
     'summary': 'Centralized and secure credential storage for administrators',
     'description': """
 Password Manager Store
@@ -34,6 +34,11 @@ Requirements:
         'views/menus.xml',
         'data/category_data.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'password_manager_store/static/src/copy_to_clipboard/copy_to_clipboard.js',
+        ],
+    },
     'images': ['static/description/banner.png'],
     'application': True,
     'installable': True,
