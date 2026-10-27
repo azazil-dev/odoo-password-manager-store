@@ -6,12 +6,12 @@
     <div class="row align-items-center mb-4 p-4 rounded-4 shadow-sm" style="background: #F8FAFC; border-left: 6px solid #714B67; border: 1px solid #E2E8F0;">
         <div class="col-md-2 text-center mb-3 mb-md-0">
             <div class="d-inline-flex p-3 rounded-circle shadow-sm" style="background: rgba(113, 75, 103, 0.1); border: 2px solid #714B67;">
-                <i class="fa fa-shield fa-4x" style="color: #714B67;"></i>
+                <i class="fa fa-key fa-4x" style="color: #714B67;"></i>
             </div>
         </div>
         <div class="col-md-10">
             <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
-                <h2 class="mb-0 fw-bold tracking-wide" style="color: #212529;">Password Manager Store</h2>
+                <h2 class="mb-0 fw-bold" style="color: #212529;">Password Manager Store</h2>
                 <span class="badge rounded-pill" style="background-color: #714B67; color: #FFFFFF; font-size: 0.8rem; padding: 6px 12px;">
                     <i class="fa fa-bolt me-1"></i>Odoo 18 CE &amp; EE
                 </span>
@@ -22,20 +22,80 @@
                     <i class="fa fa-file-text-o me-1"></i>Immutable Audit Trail
                 </span>
                 <span class="badge rounded-pill" style="background-color: #DC2626; color: #FFFFFF; font-size: 0.8rem; padding: 6px 12px;">
-                    <i class="fa fa-shield me-1"></i>Admin-Only Vault
+                    <i class="fa fa-shield me-1"></i>Admin-Only
                 </span>
             </div>
             <p class="mb-0 fs-6" style="line-height: 1.6; color: #334155;">
-                Centralized, high-security enterprise credential storage inside Odoo. Store usernames, encrypted passwords, recovery emails, and 2FA backup codes for all company accounts in one secure place with a <strong>tamper-proof audit log for every view and copy action</strong>.
+                Store and reveal Odoo <strong>user passwords</strong> securely — without ever resetting them.
+                Set, view, and copy passwords directly from the user form with a
+                <strong>tamper-proof audit trail</strong> for every action.
             </p>
         </div>
     </div>
 
     <!-- ================================================================= -->
-    <!-- CORE VALUE METRICS                                                -->
+    <!-- SCREENSHOT & NAVIGATION GUIDE                                     -->
+    <!-- ================================================================= -->
+    <div class="mb-4 text-center">
+        <img src="/password_manager_store/static/src/img/main_screenshot.png"
+             alt="Password Store tab on user form"
+             class="img-fluid rounded-4 shadow"
+             style="max-width: 100%; border: 1px solid #E2E8F0;"/>
+        <p class="text-muted small mt-2">
+            <i class="fa fa-map-marker me-1 text-danger"></i>
+            <strong>Settings → Users &amp; Companies → Users</strong> → pilih user → tab <strong>Password Store</strong>
+        </p>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- WHERE TO FIND IT                                                  -->
+    <!-- ================================================================= -->
+    <div class="card border-0 shadow-sm p-4 mb-4 rounded-4" style="background: #F0FDF4; border: 1px solid #86EFAC;">
+        <h4 class="fw-bold mb-3" style="color: #065F46;">
+            <i class="fa fa-map-signs me-2"></i>Where to Find It (Lokasi Menu)
+        </h4>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                    <span class="badge bg-success rounded-circle p-2 mt-1" style="min-width:32px; text-align:center;">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <div>
+                        <div class="fw-bold text-dark mb-1">1. User Password Store</div>
+                        <code class="small text-muted">
+                            Settings → Users &amp; Companies → Users<br/>
+                            → pilih user → tab <strong>"Password Store"</strong>
+                        </code>
+                        <p class="text-muted small mt-1 mb-0">
+                            Set, show, atau copy password login user tanpa perlu reset password.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3">
+                    <span class="badge bg-primary rounded-circle p-2 mt-1" style="min-width:32px; text-align:center;">
+                        <i class="fa fa-list-alt"></i>
+                    </span>
+                    <div>
+                        <div class="fw-bold text-dark mb-1">2. Audit Log</div>
+                        <code class="small text-muted">
+                            Settings → Technical<br/>
+                            → <strong>Password Store Audit Log</strong>
+                        </code>
+                        <p class="text-muted small mt-1 mb-0">
+                            Rekam jejak setiap aksi set, show, dan copy lengkap dengan timestamp dan IP address.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- CORE FEATURES                                                     -->
     <!-- ================================================================= -->
     <div class="row g-3 mb-4">
-        <!-- Metric 1 -->
         <div class="col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3 rounded-3" style="background: #FFFFFF; border-top: 4px solid #714B67 !important;">
                 <div class="d-flex align-items-center mb-2">
@@ -43,11 +103,10 @@
                     <h6 class="card-title mb-0 fw-bold" style="color: #0F172A;">Fernet Encryption</h6>
                 </div>
                 <p class="card-text text-muted small mb-0">
-                    AES-128-CBC + HMAC encryption at rest. Master key stored strictly in <code>odoo.conf</code>, never in the database.
+                    AES-128-CBC + HMAC at rest. Master key stored in <code>odoo.conf</code>, never in the database.
                 </p>
             </div>
         </div>
-        <!-- Metric 2 -->
         <div class="col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3 rounded-3" style="background: #FFFFFF; border-top: 4px solid #059669 !important;">
                 <div class="d-flex align-items-center mb-2">
@@ -55,101 +114,100 @@
                     <h6 class="card-title mb-0 fw-bold" style="color: #0F172A;">Tamper-Proof Audit</h6>
                 </div>
                 <p class="card-text text-muted small mb-0">
-                    Every reveal, copy, create, and edit action is recorded with user ID, precise timestamp, and client IP address.
+                    Every set, reveal, and copy action is logged with admin ID, timestamp, and client IP.
                 </p>
             </div>
         </div>
-        <!-- Metric 3 -->
         <div class="col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3 rounded-3" style="background: #FFFFFF; border-top: 4px solid #0284C7 !important;">
                 <div class="d-flex align-items-center mb-2">
-                    <span class="badge me-2 p-2 rounded-circle" style="background-color: #E0F2FE; color: #0284C7;"><i class="fa fa-user-secret fa-lg"></i></span>
-                    <h6 class="card-title mb-0 fw-bold" style="color: #0F172A;">Zero Plaintext Leakage</h6>
+                    <span class="badge me-2 p-2 rounded-circle" style="background-color: #E0F2FE; color: #0284C7;"><i class="fa fa-eye fa-lg"></i></span>
+                    <h6 class="card-title mb-0 fw-bold" style="color: #0F172A;">No Reset Needed</h6>
                 </div>
                 <p class="card-text text-muted small mb-0">
-                    Excluded from tracking chatter, server log outputs, list views, and default exports.
+                    View or copy a user's current password anytime — without changing or resetting it.
                 </p>
             </div>
         </div>
-        <!-- Metric 4 -->
         <div class="col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3 rounded-3" style="background: #FFFFFF; border-top: 4px solid #DC2626 !important;">
                 <div class="d-flex align-items-center mb-2">
-                    <span class="badge me-2 p-2 rounded-circle" style="background-color: #FEE2E2; color: #DC2626;"><i class="fa fa-building fa-lg"></i></span>
-                    <h6 class="card-title mb-0 fw-bold" style="color: #0F172A;">Multi-Company Vault</h6>
+                    <span class="badge me-2 p-2 rounded-circle" style="background-color: #FEE2E2; color: #DC2626;"><i class="fa fa-user-secret fa-lg"></i></span>
+                    <h6 class="card-title mb-0 fw-bold" style="color: #0F172A;">Admin-Only Access</h6>
                 </div>
                 <p class="card-text text-muted small mb-0">
-                    Full multi-company security rules ensure admins only see credentials assigned to their active company.
+                    Restricted to the <em>Password Store Administrator</em> group. Invisible to regular users.
                 </p>
             </div>
         </div>
     </div>
 
     <!-- ================================================================= -->
-    <!-- INTERACTIVE FEATURE SHOWCASE                                      -->
+    <!-- HOW IT WORKS                                                      -->
     <!-- ================================================================= -->
     <div class="card border-0 shadow-sm p-4 mb-4 rounded-4" style="background: #FFFFFF; border: 1px solid #E2E8F0;">
         <h4 class="fw-bold mb-3" style="color: #212529;">
-            <i class="fa fa-cubes me-2 text-primary"></i>Comprehensive Enterprise Feature Set
+            <i class="fa fa-cogs me-2 text-primary"></i>How It Works
         </h4>
-
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="p-3 rounded-3 h-100" style="background: #F8FAFC; border: 1px dashed #CBD5E1;">
                     <div class="d-flex align-items-center mb-2">
-                        <i class="fa fa-eye-slash text-danger fa-2x me-3"></i>
+                        <i class="fa fa-save text-success fa-2x me-3"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark">One-Click Reveal &amp; Clipboard Copy</h6>
-                            <small class="text-muted">Safe interaction with instant feedback</small>
+                            <h6 class="fw-bold mb-0 text-dark">Automatic Capture</h6>
+                            <small class="text-muted">On every password change</small>
                         </div>
                     </div>
                     <p class="text-muted small mb-0">
-                        Passwords stay masked by default. Authorized administrators can reveal or copy credentials directly to the clipboard with real-time audit logging.
+                        Whenever an administrator sets or changes a user's password via
+                        <strong>Settings → Users</strong> or the <strong>Password Store tab</strong>,
+                        an encrypted copy is automatically stored.
                     </p>
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <div class="p-3 rounded-3 h-100" style="background: #F0FDF4; border: 1px dashed #86EFAC;">
-                    <div class="d-flex align-items-center mb-2">
-                        <i class="fa fa-server text-success fa-2x me-3"></i>
-                        <div>
-                            <h6 class="fw-bold mb-0 text-dark">Categorization &amp; Tagging</h6>
-                            <small class="text-muted">Pre-loaded &amp; customizable taxonomy</small>
-                        </div>
-                    </div>
-                    <p class="text-muted small mb-0">
-                        Classify credentials into Social Media, Server / Hosting, Payment Gateway, SaaS Apps, Database, and Internal Systems with flexible color tags.
-                    </p>
-                </div>
-            </div>
-
             <div class="col-md-6">
                 <div class="p-3 rounded-3 h-100" style="background: #EFF6FF; border: 1px dashed #93C5FD;">
                     <div class="d-flex align-items-center mb-2">
-                        <i class="fa fa-lock text-primary fa-2x me-3"></i>
+                        <i class="fa fa-eye text-primary fa-2x me-3"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark">2FA &amp; Backup Codes Vault</h6>
-                            <small class="text-muted">Never get locked out of critical services</small>
+                            <h6 class="fw-bold mb-0 text-dark">Reveal Anytime</h6>
+                            <small class="text-muted">One click, fully logged</small>
                         </div>
                     </div>
                     <p class="text-muted small mb-0">
-                        Store emergency recovery email, phone numbers, and encrypted 2FA backup codes alongside primary logins.
+                        Open any user → <strong>Password Store tab</strong> → click <strong>Show Password</strong>
+                        or <strong>Copy Password</strong>. The action is immediately recorded in the audit log.
                     </p>
                 </div>
             </div>
-
+            <div class="col-md-6">
+                <div class="p-3 rounded-3 h-100" style="background: #FFF7ED; border: 1px dashed #FED7AA;">
+                    <div class="d-flex align-items-center mb-2">
+                        <i class="fa fa-pencil text-warning fa-2x me-3"></i>
+                        <div>
+                            <h6 class="fw-bold mb-0 text-dark">Set &amp; Store in One Step</h6>
+                            <small class="text-muted">Built-in wizard</small>
+                        </div>
+                    </div>
+                    <p class="text-muted small mb-0">
+                        Use the <strong>Set &amp; Store Password</strong> button directly from the
+                        Password Store tab to set a new password and store it encrypted in one action.
+                    </p>
+                </div>
+            </div>
             <div class="col-md-6">
                 <div class="p-3 rounded-3 h-100" style="background: #FAF5FF; border: 1px dashed #D8B4FE;">
                     <div class="d-flex align-items-center mb-2">
-                        <i class="fa fa-user-circle text-purple fa-2x me-3" style="color: #714B67;"></i>
+                        <i class="fa fa-shield fa-2x me-3" style="color: #714B67;"></i>
                         <div>
-                            <h6 class="fw-bold mb-0 text-dark">Account Ownership &amp; Assignments</h6>
-                            <small class="text-muted">Clear administrative accountability</small>
+                            <h6 class="fw-bold mb-0 text-dark">Database Isolation</h6>
+                            <small class="text-muted">Key separation guarantee</small>
                         </div>
                     </div>
                     <p class="text-muted small mb-0">
-                        Assign responsible administrators to each account to track ownership and streamline maintenance or password rotation policies.
+                        Passwords in the database are pure ciphertext. The master key lives only in
+                        <code>odoo.conf</code> — leaked DB backups are useless without it.
                     </p>
                 </div>
             </div>
@@ -157,114 +215,88 @@
     </div>
 
     <!-- ================================================================= -->
-    <!-- AUDIT TRAIL PREVIEW & SECURITY ARCHITECTURE                       -->
+    <!-- AUDIT LOG SAMPLE                                                  -->
     <!-- ================================================================= -->
-    <div class="row g-4 mb-4">
-        <!-- Left: Audit Trail Workflow -->
-        <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm p-4 rounded-4" style="background: #FFFFFF; border: 1px solid #E2E8F0;">
-                <h5 class="fw-bold mb-3 text-dark">
-                    <i class="fa fa-list-alt text-primary me-2"></i>Audit Log Record Sample
-                </h5>
-                <p class="text-muted small mb-3">
-                    Every interaction is logged without exception and protected against alteration:
-                </p>
-                <div class="table-responsive">
-                    <table class="table table-sm table-bordered align-middle mb-0" style="font-size: 0.8rem;">
-                        <thead class="table-light">
-                            <tr>
-                                <th>Timestamp</th>
-                                <th>User</th>
-                                <th>Action</th>
-                                <th>IP Address</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2026-10-27 08:30:12</td>
-                                <td>Admin (IT Ops)</td>
-                                <td><span class="badge bg-warning text-dark"><i class="fa fa-eye me-1"></i>Show</span></td>
-                                <td><code>192.168.1.105</code></td>
-                            </tr>
-                            <tr>
-                                <td>2026-10-27 08:31:05</td>
-                                <td>Admin (IT Ops)</td>
-                                <td><span class="badge bg-info text-dark"><i class="fa fa-copy me-1"></i>Copy</span></td>
-                                <td><code>192.168.1.105</code></td>
-                            </tr>
-                            <tr>
-                                <td>2026-10-27 09:15:40</td>
-                                <td>Super Administrator</td>
-                                <td><span class="badge bg-success"><i class="fa fa-plus me-1"></i>Create</span></td>
-                                <td><code>10.0.4.12</code></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right: Cryptographic Separation -->
-        <div class="col-lg-6">
-            <div class="card h-100 border-0 shadow-sm p-4 rounded-4" style="background: #FFFFFF; border: 1px solid #E2E8F0;">
-                <h5 class="fw-bold mb-3 text-dark">
-                    <i class="fa fa-shield text-success me-2"></i>Database Isolation Guarantee
-                </h5>
-                <div class="p-3 mb-2 rounded-3 bg-light border">
-                    <div class="d-flex align-items-center mb-1">
-                        <i class="fa fa-database text-primary me-2"></i>
-                        <strong class="text-dark small">PostgreSQL Database Layer:</strong>
-                    </div>
-                    <code class="text-danger small">gAAAAABm... [Encrypted Fernet Ciphertext Only]</code>
-                </div>
-                <div class="p-3 rounded-3 bg-light border">
-                    <div class="d-flex align-items-center mb-1">
-                        <i class="fa fa-file-text-o text-success me-2"></i>
-                        <strong class="text-dark small">Server Configuration (odoo.conf):</strong>
-                    </div>
-                    <code class="text-dark small">password_store_key = [Master Secret Key]</code>
-                </div>
-                <p class="text-muted small mt-3 mb-0">
-                    <i class="fa fa-check-circle text-success me-1"></i> If your database backup is ever stolen or leaked, all passwords remain completely unreadable without access to <code>odoo.conf</code>.
-                </p>
-            </div>
+    <div class="card border-0 shadow-sm p-4 mb-4 rounded-4" style="background: #FFFFFF; border: 1px solid #E2E8F0;">
+        <h5 class="fw-bold mb-3 text-dark">
+            <i class="fa fa-list-alt text-primary me-2"></i>Audit Log Sample
+            <small class="text-muted fw-normal ms-2" style="font-size: 0.8rem;">
+                Settings → Technical → Password Store Audit Log
+            </small>
+        </h5>
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered align-middle mb-0" style="font-size: 0.8rem;">
+                <thead class="table-light">
+                    <tr>
+                        <th>Date / Time</th>
+                        <th>Admin</th>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>IP Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2026-10-27 08:30:12</td>
+                        <td>Administrator</td>
+                        <td>john.doe</td>
+                        <td><span class="badge bg-primary"><i class="fa fa-key me-1"></i>Set Password</span></td>
+                        <td><code>192.168.1.10</code></td>
+                    </tr>
+                    <tr>
+                        <td>2026-10-27 08:31:05</td>
+                        <td>Administrator</td>
+                        <td>jane.smith</td>
+                        <td><span class="badge bg-warning text-dark"><i class="fa fa-eye me-1"></i>Show Password</span></td>
+                        <td><code>192.168.1.10</code></td>
+                    </tr>
+                    <tr>
+                        <td>2026-10-27 09:15:40</td>
+                        <td>IT Admin</td>
+                        <td>bob.jones</td>
+                        <td><span class="badge bg-info text-dark"><i class="fa fa-copy me-1"></i>Copy Password</span></td>
+                        <td><code>10.0.4.12</code></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <!-- ================================================================= -->
-    <!-- EASY SETUP IN 3 STEPS                                             -->
+    <!-- SETUP IN 3 STEPS                                                  -->
     <!-- ================================================================= -->
     <div class="card border-0 shadow-sm p-4 mb-4 rounded-4" style="background: #F8FAFC; border: 1px solid #E2E8F0;">
         <h4 class="fw-bold mb-3" style="color: #212529;">
-            <i class="fa fa-check-square-o me-2 text-primary"></i>Simple 3-Step Setup
+            <i class="fa fa-check-square-o me-2 text-primary"></i>Setup in 3 Steps
         </h4>
         <div class="row g-3">
             <div class="col-md-4">
                 <div class="p-3 bg-white rounded-3 border h-100 shadow-sm">
-                    <div class="fw-bold text-primary mb-1">Step 1: Prerequisites</div>
-                    <p class="small text-muted mb-2">Install the standard Python cryptography library:</p>
+                    <div class="fw-bold text-primary mb-1">Step 1 — Install Library</div>
+                    <p class="small text-muted mb-2">Install the Python cryptography library:</p>
                     <code class="d-block p-2 bg-light rounded text-dark small">pip install cryptography</code>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="p-3 bg-white rounded-3 border h-100 shadow-sm">
-                    <div class="fw-bold text-primary mb-1">Step 2: Generate Key</div>
-                    <p class="small text-muted mb-2">Generate a 32-byte Fernet key:</p>
+                    <div class="fw-bold text-primary mb-1">Step 2 — Generate Key</div>
+                    <p class="small text-muted mb-2">Generate a secure Fernet key:</p>
                     <code class="d-block p-2 bg-light rounded text-dark small">python3 -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"</code>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="p-3 bg-white rounded-3 border h-100 shadow-sm">
-                    <div class="fw-bold text-primary mb-1">Step 3: Save to odoo.conf</div>
-                    <p class="small text-muted mb-2">Add the key to your server config &amp; restart:</p>
+                    <div class="fw-bold text-primary mb-1">Step 3 — Add to odoo.conf</div>
+                    <p class="small text-muted mb-2">Add the key and restart Odoo:</p>
                     <code class="d-block p-2 bg-light rounded text-dark small">password_store_key = YOUR_KEY</code>
+                    <p class="small text-danger mt-2 mb-0"><i class="fa fa-exclamation-triangle me-1"></i>Keep this key safe. Lost key = lost passwords forever.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- ================================================================= -->
-    <!-- FOOTER & SUPPORT INFORMATION                                      -->
+    <!-- FOOTER                                                            -->
     <!-- ================================================================= -->
     <div class="d-flex flex-wrap justify-content-between align-items-center p-3 rounded-3" style="background: #FFFFFF; border: 1px solid #E2E8F0;">
         <div class="small text-muted">

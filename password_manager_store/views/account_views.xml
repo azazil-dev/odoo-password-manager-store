@@ -15,7 +15,6 @@
                 <field name="recovery_email" string="Recovery Email"/>
                 <field name="category_id" string="Category"/>
                 <field name="tag_ids" string="Tags"/>
-                <!-- Filters -->
                 <filter string="Active" name="active" domain="[('active', '=', True)]"/>
                 <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
                 <filter string="My Responsible" name="my_responsible"
@@ -23,8 +22,7 @@
                 <separator/>
                 <filter string="No Category" name="no_category"
                     domain="[('category_id', '=', False)]"/>
-                <!-- Group by -->
-                <group expand="0" string="Group By">
+                <group name="group_by">
                     <filter string="Category" name="group_category"
                         context="{'group_by': 'category_id'}"/>
                     <filter string="Responsible" name="group_responsible"
@@ -56,7 +54,6 @@
                     options="{'color_field': 'color'}" optional="show"/>
                 <field name="responsible_id" optional="show"/>
                 <field name="company_id" optional="hide" groups="base.group_multi_company"/>
-                <!-- password is intentionally NOT listed here -->
             </list>
         </field>
     </record>
@@ -69,18 +66,15 @@
         <field name="model">password.store.account</field>
         <field name="arch" type="xml">
             <form string="Account">
-                <!-- Hidden fields used in modifier expressions -->
                 <field name="key_missing" invisible="1"/>
                 <field name="password_encrypted" invisible="1"/>
                 <field name="backup_codes_encrypted" invisible="1"/>
 
-                <!-- Master key warning banner -->
                 <div class="alert alert-warning mb-0" role="alert"
                     invisible="not key_missing">
                     <strong>⚠ Master key not configured.</strong>
                     Add <code>password_store_key = &lt;key&gt;</code> to
                     <code>odoo.conf</code> and restart Odoo before saving passwords.
-                    See README.md for instructions.
                 </div>
 
                 <sheet>
@@ -97,8 +91,7 @@
                         <group string="Account Info">
                             <field name="category_id"
                                 options="{'no_create_edit': False}"/>
-                            <field name="url" widget="url"
-                                placeholder="https://..."/>
+                            <field name="url" widget="url" placeholder="https://..."/>
                             <field name="username"/>
                             <field name="tag_ids" widget="many2many_tags"
                                 options="{'color_field': 'color'}"/>
@@ -107,7 +100,6 @@
                             <field name="active" invisible="1"/>
                         </group>
                         <group string="Credentials">
-                            <!-- Password row -->
                             <label for="password"/>
                             <div class="o_field_widget">
                                 <div class="d-flex gap-2 align-items-center">
@@ -129,14 +121,11 @@
                                         invisible="not password_encrypted"/>
                                 </div>
                             </div>
-
-                            <!-- Recovery info -->
                             <field name="recovery_email" widget="email"/>
                             <field name="recovery_phone" widget="phone"/>
                         </group>
                     </group>
 
-                    <!-- Backup / Access Codes -->
                     <group string="Backup / Access Codes">
                         <div class="d-flex gap-2 align-items-start col-12">
                             <field name="backup_codes"
@@ -161,7 +150,6 @@
                         </div>
                     </group>
 
-                    <!-- Notes -->
                     <group string="Notes">
                         <field name="notes" nolabel="1"/>
                     </group>
@@ -182,12 +170,8 @@
         <field name="search_view_id" ref="view_password_store_account_search"/>
         <field name="context">{'search_default_active': 1}</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                No accounts yet.
-            </p>
-            <p>
-                Create your first account entry to start storing credentials securely.
-            </p>
+            <p class="o_view_nocontent_smiling_face">No accounts yet.</p>
+            <p>Create your first account entry to start storing credentials securely.</p>
         </field>
     </record>
 

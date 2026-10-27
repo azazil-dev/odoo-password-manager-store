@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Password Manager Store',
-    'version': '18.0.1.0.0',
-    'summary': 'Centralized and secure credential storage for administrators',
+    'version': '18.0.5.0.0',
+    'summary': 'View and manage Odoo user passwords securely — encrypted storage with audit trail',
     'description': """
 Password Manager Store
 ======================
-Store and manage all company credentials (social media, server logins,
-third-party services) in one centralized, encrypted location inside Odoo.
+Allows Password Store Administrators to set, view, and copy Odoo user
+passwords directly from the user form (Settings → Users → Password Store tab).
 
-Only authorized Password Store Administrators can access credentials.
-All view and copy actions are recorded in a tamper-proof audit log.
+Passwords are stored encrypted using Fernet (AES-128-CBC) and every
+reveal/copy action is recorded in a tamper-proof audit log.
 
 Requirements:
 - pip install cryptography
@@ -21,25 +21,22 @@ Requirements:
     'website': 'https://www.niits.id',
     'support': 'sqlrif@gmail.com',
     'license': 'OPL-1',
-    'price': 15.00,
+    'price': 8.00,
     'currency': 'USD',
     'depends': ['base', 'mail'],
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'security/rules.xml',
-        'views/account_views.xml',
+        'wizard/set_user_password_wizard.xml',
         'views/access_log_views.xml',
-        'views/category_views.xml',
-        'views/menus.xml',
-        'data/category_data.xml',
+        'views/res_users_views.xml',
     ],
     'assets': {
         'web.assets_backend': [
             'password_manager_store/static/src/copy_to_clipboard/copy_to_clipboard.js',
         ],
     },
-    'images': ['static/description/banner.png'],
+    'images': ['static/description/banner.png', 'static/src/img/main_screenshot.png'],
     'application': True,
     'installable': True,
     'auto_install': False,
