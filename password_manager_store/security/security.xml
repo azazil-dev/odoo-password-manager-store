@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Module category -->
+    <record id="module_category_password_manager" model="ir.module.category">
+        <field name="name">Password Manager</field>
+        <field name="description">Manage access to Password Manager Store</field>
+        <field name="sequence">100</field>
+    </record>
+
+    <!-- Password Store Administrator group -->
+    <record id="group_password_store_admin" model="res.groups">
+        <field name="name">Password Store Administrator</field>
+        <field name="category_id" ref="module_category_password_manager"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
+        <field name="comment">Full access to Password Manager Store: create, edit, view, and copy credentials. All actions are recorded in the audit log.</field>
+    </record>
+</odoo>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================================================== -->
+    <!-- Search view                                                     -->
+    <!-- ============================================================== -->
+    <record id="view_password_store_account_search" model="ir.ui.view">
+        <field name="name">password.store.account.search</field>
+        <field name="model">password.store.account</field>
+        <field name="arch" type="xml">
+            <search string="Search Accounts">
+                <field name="name" string="Name"/>
+                <field name="username" string="Username"/>
+                <field name="url" string="URL"/>
+                <field name="recovery_email" string="Recovery Email"/>
+                <field name="category_id" string="Category"/>
+                <field name="tag_ids" string="Tags"/>
+                <!-- Filters -->
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+                <filter string="My Responsible" name="my_responsible"
+                    domain="[('responsible_id', '=', uid)]"/>
+                <separator/>
+                <filter string="No Category" name="no_category"
+                    domain="[('category_id', '=', False)]"/>
+                <!-- Group by -->
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="group_category"
+                        context="{'group_by': 'category_id'}"/>
+                    <filter string="Responsible" name="group_responsible"
+                        context="{'group_by': 'responsible_id'}"/>
+                    <filter string="Company" name="group_company"
+                        context="{'group_by': 'company_id'}"/>
+                </group>
+                <searchpanel>
+                    <field name="category_id" string="Category" icon="fa-folder"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================================================== -->
+    <!-- List view                                                       -->
+    <!-- ============================================================== -->
+    <record id="view_password_store_account_list" model="ir.ui.view">
+        <field name="name">password.store.account.list</field>
+        <field name="model">password.store.account</field>
+        <field name="arch" type="xml">
+            <tree string="Accounts" decoration-muted="not active">
+                <field name="active" invisible="1"/>
+                <field name="name"/>
+                <field name="category_id" optional="show"/>
+                <field name="username"/>
+                <field name="url" optional="show"/>
+                <field name="tag_ids" widget="many2many_tags"
+                    options="{'color_field': 'color'}" optional="show"/>
+                <field name="responsible_id" optional="show"/>
+                <field name="company_id" optional="hide" groups="base.group_multi_company"/>
+                <!-- password is intentionally NOT listed here -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- ============================================================== -->
+    <!-- Form view                                                       -->
+    <!-- ============================================================== -->
+    <record id="view_password_store_account_form" model="ir.ui.view">
+        <field name="name">password.store.account.form</field>
+        <field name="model">password.store.account</field>
+        <field name="arch" type="xml">
+            <form string="Account">
+                <!-- Hidden fields used in modifier expressions -->
+                <field name="key_missing" invisible="1"/>
+                <field name="password_encrypted" invisible="1"/>
+                <field name="backup_codes_encrypted" invisible="1"/>
+
+                <!-- Master key warning banner -->
+                <div class="alert alert-warning mb-0" role="alert"
+                    invisible="not key_missing">
+                    <strong>⚠ Master key not configured.</strong>
+                    Add <code>password_store_key = &lt;key&gt;</code> to
+                    <code>odoo.conf</code> and restart Odoo before saving passwords.
+                    See README.md for instructions.
+                </div>
+
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                        invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Instagram Company Account"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Account Info">
+                            <field name="category_id"
+                                options="{'no_create_edit': False}"/>
+                            <field name="url" widget="url"
+                                placeholder="https://..."/>
+                            <field name="username"/>
+                            <field name="tag_ids" widget="many2many_tags"
+                                options="{'color_field': 'color'}"/>
+                            <field name="responsible_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Credentials">
+                            <!-- Password row -->
+                            <label for="password"/>
+                            <div class="o_field_widget">
+                                <div class="d-flex gap-2 align-items-center">
+                                    <field name="password"
+                                        password="True"
+                                        class="flex-grow-1"
+                                        placeholder="Enter password"/>
+                                    <button name="action_show_password"
+                                        type="object"
+                                        string="Show"
+                                        icon="fa-eye"
+                                        class="btn btn-secondary btn-sm"
+                                        invisible="not password_encrypted"/>
+                                    <button name="action_copy_password"
+                                        type="object"
+                                        string="Copy"
+                                        icon="fa-copy"
+                                        class="btn btn-secondary btn-sm"
+                                        invisible="not password_encrypted"/>
+                                </div>
+                            </div>
+
+                            <!-- Recovery info -->
+                            <field name="recovery_email" widget="email"/>
+                            <field name="recovery_phone" widget="phone"/>
+                        </group>
+                    </group>
+
+                    <!-- Backup / Access Codes -->
+                    <group string="Backup / Access Codes">
+                        <div class="d-flex gap-2 align-items-start col-12">
+                            <field name="backup_codes"
+                                password="True"
+                                class="flex-grow-1"
+                                placeholder="Paste backup codes here…"
+                                nolabel="1"/>
+                            <div class="d-flex flex-column gap-1">
+                                <button name="action_show_backup_codes"
+                                    type="object"
+                                    string="Show"
+                                    icon="fa-eye"
+                                    class="btn btn-secondary btn-sm"
+                                    invisible="not backup_codes_encrypted"/>
+                                <button name="action_copy_backup_codes"
+                                    type="object"
+                                    string="Copy"
+                                    icon="fa-copy"
+                                    class="btn btn-secondary btn-sm"
+                                    invisible="not backup_codes_encrypted"/>
+                            </div>
+                        </div>
+                    </group>
+
+                    <!-- Notes -->
+                    <group string="Notes">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================================================== -->
+    <!-- Action                                                          -->
+    <!-- ============================================================== -->
+    <record id="action_password_store_account" model="ir.actions.act_window">
+        <field name="name">Accounts</field>
+        <field name="res_model">password.store.account</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_password_store_account_search"/>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No accounts yet.
+            </p>
+            <p>
+                Create your first account entry to start storing credentials securely.
+            </p>
+        </field>
+    </record>
+
+</odoo>

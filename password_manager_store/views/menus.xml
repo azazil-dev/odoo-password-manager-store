@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root menu: visible only to admin group -->
+    <menuitem
+        id="menu_password_manager_root"
+        name="Access to Accounts"
+        sequence="80"
+        groups="password_manager_store.group_password_store_admin"
+        web_icon="password_manager_store,static/description/icon.png"/>
+
+    <!-- Accounts -->
+    <menuitem
+        id="menu_password_store_accounts"
+        name="Accounts"
+        parent="menu_password_manager_root"
+        action="action_password_store_account"
+        sequence="10"/>
+
+    <!-- Audit Log -->
+    <menuitem
+        id="menu_password_store_audit_log"
+        name="Audit Log"
+        parent="menu_password_manager_root"
+        action="action_password_store_access_log"
+        sequence="20"/>
+
+    <!-- Configuration sub-menu -->
+    <menuitem
+        id="menu_password_store_configuration"
+        name="Configuration"
+        parent="menu_password_manager_root"
+        sequence="90"/>
+
+    <menuitem
+        id="menu_password_store_categories"
+        name="Categories"
+        parent="menu_password_store_configuration"
+        action="action_password_store_category"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_password_store_tags"
+        name="Tags"
+        parent="menu_password_store_configuration"
+        action="action_password_store_tag"
+        sequence="20"/>
+
+</odoo>

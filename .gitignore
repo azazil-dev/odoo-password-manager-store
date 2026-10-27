@@ -1,0 +1,33 @@
+# ============================================================
+# Repo: odoo-password-manager-store
+# Modul Odoo: password_manager_store
+# ============================================================
+/*
+!/.gitignore
+!/README.md
+!/password_manager_store/
+
+# PRD / internal docs - tidak ikut rilis Odoo Apps
+password_manager_store/docs/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Tooling artifacts
+skills-lock.json
+.agents/
+
+# Editor & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs & env
+*.log
+.env
