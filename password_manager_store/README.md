@@ -1,11 +1,11 @@
-# Password Manager Store for Odoo 17
+# Password Manager Store for Odoo 18
 
-[![Odoo Version](https://img.shields.io/badge/Odoo-17.0-714B67.svg?style=flat-square)](https://www.odoo.com)
-[![License](https://img.shields.io/badge/License-OPL--1-059669.svg?style=flat-square)](https://www.odoo.com/documentation/17.0/legal/licenses.html)
+[![Odoo Version](https://img.shields.io/badge/Odoo-18.0-714B67.svg?style=flat-square)](https://www.odoo.com)
+[![License](https://img.shields.io/badge/License-OPL--1-059669.svg?style=flat-square)](https://www.odoo.com/documentation/18.0/legal/licenses.html)
 [![Price](https://img.shields.io/badge/Price-%2415%20USD-0284C7.svg?style=flat-square)](https://apps.odoo.com)
 [![Security](https://img.shields.io/badge/Security-Fernet%20AES--128--CBC-DC2626.svg?style=flat-square)](https://cryptography.io/en/latest/fernet/)
 
-**Centralized, military-grade encrypted credential storage built natively for Odoo 17 (Community & Enterprise).**
+**Centralized, military-grade encrypted credential storage built natively for Odoo 18 (Community & Enterprise).**
 
 Manage company credentials — social media accounts, server root logins, database secrets, payment gateways, and third-party SaaS APIs — in one unified, protected vault inside Odoo. Fully restricted to authorized administrators with an immutable audit trail for every reveal and copy action.
 
@@ -27,7 +27,7 @@ Manage company credentials — social media accounts, server root logins, databa
 
 | Feature | Details |
 |---|---|
-| **Odoo Editions** | Odoo 17.0 Community Edition (CE) & Enterprise Edition (EE) |
+| **Odoo Editions** | Odoo 18.0 Community Edition (CE) & Enterprise Edition (EE) |
 | **Hosting Model** | On-Premise, Dedicated Server, Private Cloud (Docker / Kubernetes / VMs) |
 | **Unsupported** | Odoo Online (SaaS) and Odoo.sh (requires direct write access to `odoo.conf`) |
 | **Dependencies** | Odoo core modules `base`, `mail`, and Python library `cryptography` |
