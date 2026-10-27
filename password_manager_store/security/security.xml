@@ -7,11 +7,16 @@
         <field name="sequence">100</field>
     </record>
 
+    <!-- Privilege record (required in Odoo 19: category_id on res.groups is removed) -->
+    <record id="privilege_password_manager_store" model="res.groups.privilege">
+        <field name="name">Password Manager Store</field>
+        <field name="category_id" ref="module_category_password_manager"/>
+    </record>
+
     <!-- Password Store Administrator group -->
     <record id="group_password_store_admin" model="res.groups">
         <field name="name">Password Store Administrator</field>
-        <field name="category_id" ref="module_category_password_manager"/>
+        <field name="privilege_id" ref="privilege_password_manager_store"/>
         <field name="implied_ids" eval="[(4, ref('base.group_system'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>
 </odoo>

@@ -9,7 +9,7 @@
         <field name="model">res.users</field>
         <field name="inherit_id" ref="base.view_users_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='account_security']" position="after">
+            <xpath expr="//page[@name='page_security']" position="after">
                 <page string="Password Store" name="page_password_store"
                     groups="password_manager_store.group_password_store_admin">
                     <group>

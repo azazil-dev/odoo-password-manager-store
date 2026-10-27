@@ -8,13 +8,9 @@ with the *Password Store Administrator* group can later reveal or copy the
 stored password without resetting it.
 """
 
-import logging
-
 from odoo import _, api, fields, models
 
 from . import crypto
-
-_logger = logging.getLogger(__name__)
 
 
 class ResUsers(models.Model):
@@ -62,12 +58,9 @@ class ResUsers(models.Model):
         records = super().create(vals_list)
         for rec, plaintext in zip(records, plaintexts):
             if plaintext:
-                try:
-                    rec.password_encrypted = crypto.encrypt_value(self.env, plaintext)
-                    self.env['password.store.access.log']._log_user_password(
-                        rec, 'user_write')
-                except Exception as e:
-                    _logger.warning("Password Manager Store: could not encrypt password for %s: %s", rec.login, e)
+                rec.password_encrypted = crypto.encrypt_value(self.env, plaintext)
+                self.env['password.store.access.log']._log_user_password(
+                    rec, 'user_write')
         return records
 
     def write(self, vals):
@@ -75,13 +68,10 @@ class ResUsers(models.Model):
         result = super().write(vals)
         if plaintext:
             for rec in self:
-                try:
-                    rec.password_encrypted = crypto.encrypt_value(
-                        self.env, plaintext)
-                    self.env['password.store.access.log']._log_user_password(
-                        rec, 'user_write')
-                except Exception as e:
-                    _logger.warning("Password Manager Store: could not encrypt password for %s: %s", rec.login, e)
+                rec.password_encrypted = crypto.encrypt_value(
+                    self.env, plaintext)
+                self.env['password.store.access.log']._log_user_password(
+                    rec, 'user_write')
         return result
 
     # ------------------------------------------------------------------ #
