@@ -36,7 +36,7 @@ Requirements:
             'password_manager_store/static/src/copy_to_clipboard/copy_to_clipboard.js',
         ],
     },
-    'images': ['static/description/banner.png', 'static/src/img/main_screenshot.png'],
+    'images': ['static/description/banner.png'],
     'application': True,
     'installable': True,
     'auto_install': False,
