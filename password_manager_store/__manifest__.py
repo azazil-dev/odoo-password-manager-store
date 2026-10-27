@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Password Manager Store',
-    'version': '18.0.5.0.0',
+    'version': '19.0.5.0.0',
     'summary': 'View and manage Odoo user passwords securely — encrypted storage with audit trail',
     'description': """
 Password Manager Store
@@ -36,7 +36,7 @@ Requirements:
             'password_manager_store/static/src/copy_to_clipboard/copy_to_clipboard.js',
         ],
     },
-    'images': ['static/description/banner.png', 'static/src/img/main_screenshot.png'],
+    'images': ['static/description/banner.png'],
     'application': True,
     'installable': True,
     'auto_install': False,
