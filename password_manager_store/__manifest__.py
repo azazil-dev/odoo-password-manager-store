@@ -21,7 +21,7 @@ Requirements:
     'website': 'https://www.niits.id',
     'support': 'sqlrif@gmail.com',
     'license': 'OPL-1',
-    'price': 8.00,
+    'price': 0.00,
     'currency': 'USD',
     'depends': ['base', 'mail'],
     'data': [
