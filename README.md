@@ -2,7 +2,7 @@
 
 [![Odoo Version](https://img.shields.io/badge/Odoo-17.0-714B67.svg?style=flat-square)](https://www.odoo.com)
 [![License](https://img.shields.io/badge/License-OPL--1-059669.svg?style=flat-square)](https://www.odoo.com/documentation/17.0/legal/licenses.html)
-[![Price](https://img.shields.io/badge/Price-%2415%20USD-0284C7.svg?style=flat-square)](https://apps.odoo.com)
+[![Price](https://img.shields.io/badge/Price-Free-brightgreen.svg?style=flat-square)](https://apps.odoo.com)
 [![Security](https://img.shields.io/badge/Security-Fernet%20AES--128--CBC-DC2626.svg?style=flat-square)](https://cryptography.io/en/latest/fernet/)
 
 **Centralized, military-grade encrypted credential storage built natively for Odoo 17 (Community & Enterprise).**
