@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Default categories — noupdate so user edits are preserved on upgrade -->
+    <record id="category_social_media" model="password.store.category">
+        <field name="name">Social Media</field>
+    </record>
+    <record id="category_server" model="password.store.category">
+        <field name="name">Server</field>
+    </record>
+    <record id="category_email" model="password.store.category">
+        <field name="name">Email</field>
+    </record>
+    <record id="category_third_party" model="password.store.category">
+        <field name="name">Third-party Service</field>
+    </record>
+</odoo>

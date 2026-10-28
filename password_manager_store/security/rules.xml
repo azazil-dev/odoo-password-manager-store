@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Multi-company record rule: admins only see accounts for their active companies -->
+    <record id="rule_password_store_account_company" model="ir.rule">
+        <field name="name">Password Store Account: company filter</field>
+        <field name="model_id" ref="model_password_store_account"/>
+        <field name="groups" eval="[(4, ref('password_manager_store.group_password_store_admin'))]"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Multi-company record rule for audit log -->
+    <record id="rule_password_store_access_log_company" model="ir.rule">
+        <field name="name">Password Store Audit Log: company filter (via account)</field>
+        <field name="model_id" ref="model_password_store_access_log"/>
+        <field name="groups" eval="[(4, ref('password_manager_store.group_password_store_admin'))]"/>
+        <field name="domain_force">
+            ['|',
+                ('account_id', '=', False),
+                '|',
+                    ('account_id.company_id', '=', False),
+                    ('account_id.company_id', 'in', company_ids)
+            ]
+        </field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+</odoo>

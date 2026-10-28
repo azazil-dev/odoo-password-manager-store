@@ -1,0 +1,190 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * password_manager_store
+#
+# Translators:
+# Arif N Ramadhan <sqlrif@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Arif N Ramadhan <sqlrif@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. module: password_manager_store
+#. odoo-python
+#: code:addons/password_manager_store/models/access_log.py:0
+#, python-format
+msgid "Audit log entries cannot be modified."
+msgstr "Entri log audit tidak dapat diubah."
+
+#. module: password_manager_store
+#. odoo-python
+#: code:addons/password_manager_store/models/access_log.py:0
+#, python-format
+msgid "Audit log entries cannot be deleted."
+msgstr "Entri log audit tidak dapat dihapus."
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__name
+msgid "Account / Service Name"
+msgstr "Nama Akun / Layanan"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__username
+msgid "Username"
+msgstr "Nama Pengguna"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__password
+msgid "Password"
+msgstr "Kata Sandi"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__recovery_email
+msgid "Recovery Email"
+msgstr "Email Pemulihan"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__recovery_phone
+msgid "Recovery Phone"
+msgstr "Telepon Pemulihan"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__backup_codes
+msgid "Backup / Access Codes"
+msgstr "Kode Cadangan / Akses"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__notes
+msgid "Notes"
+msgstr "Catatan"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__responsible_id
+msgid "Responsible"
+msgstr "Penanggung Jawab"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__company_id
+msgid "Company"
+msgstr "Perusahaan"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_account__category_id
+msgid "Category"
+msgstr "Kategori"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_access_log__action
+#: model:ir.model.fields.selection,name:password_manager_store.selection__password_store_access_log__action__show
+msgid "Show Password"
+msgstr "Tampilkan Kata Sandi"
+
+#. module: password_manager_store
+#: model:ir.model.fields.selection,name:password_manager_store.selection__password_store_access_log__action__copy
+msgid "Copy Password"
+msgstr "Salin Kata Sandi"
+
+#. module: password_manager_store
+#: model:ir.model.fields.selection,name:password_manager_store.selection__password_store_access_log__action__create
+msgid "Create"
+msgstr "Buat"
+
+#. module: password_manager_store
+#: model:ir.model.fields.selection,name:password_manager_store.selection__password_store_access_log__action__write
+msgid "Write"
+msgstr "Ubah"
+
+#. module: password_manager_store
+#: model:ir.model.fields.selection,name:password_manager_store.selection__password_store_access_log__action__unlink
+msgid "Delete"
+msgstr "Hapus"
+
+#. module: password_manager_store
+#: model:ir.model.fields.selection,name:password_manager_store.selection__password_store_access_log__action__show_backup
+msgid "Show Backup Codes"
+msgstr "Tampilkan Kode Cadangan"
+
+#. module: password_manager_store
+#: model:ir.model.fields.selection,name:password_manager_store.selection__password_store_access_log__action__copy_backup
+msgid "Copy Backup Codes"
+msgstr "Salin Kode Cadangan"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_access_log__user_id
+msgid "User"
+msgstr "Pengguna"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_access_log__account_id
+msgid "Account"
+msgstr "Akun"
+
+#. module: password_manager_store
+#: model:ir.model.fields,field_description:password_manager_store.field_password_store_access_log__ip_address
+msgid "IP Address"
+msgstr "Alamat IP"
+
+#. module: password_manager_store
+#: model:ir.ui.menu,name:password_manager_store.menu_password_manager_root
+msgid "Access to Accounts"
+msgstr "Akses Akun"
+
+#. module: password_manager_store
+#: model:ir.ui.menu,name:password_manager_store.menu_password_store_accounts
+msgid "Accounts"
+msgstr "Akun"
+
+#. module: password_manager_store
+#: model:ir.ui.menu,name:password_manager_store.menu_password_store_audit_log
+msgid "Audit Log"
+msgstr "Log Audit"
+
+#. module: password_manager_store
+#: model:ir.ui.menu,name:password_manager_store.menu_password_store_configuration
+msgid "Configuration"
+msgstr "Konfigurasi"
+
+#. module: password_manager_store
+#: model:ir.ui.menu,name:password_manager_store.menu_password_store_categories
+msgid "Categories"
+msgstr "Kategori"
+
+#. module: password_manager_store
+#: model:ir.ui.menu,name:password_manager_store.menu_password_store_tags
+msgid "Tags"
+msgstr "Tag"
+
+#. module: password_manager_store
+#: model:password.store.category,name:password_manager_store.category_social_media
+msgid "Social Media"
+msgstr "Media Sosial"
+
+#. module: password_manager_store
+#: model:password.store.category,name:password_manager_store.category_server
+msgid "Server"
+msgstr "Server"
+
+#. module: password_manager_store
+#: model:password.store.category,name:password_manager_store.category_email
+msgid "Email"
+msgstr "Email"
+
+#. module: password_manager_store
+#: model:password.store.category,name:password_manager_store.category_third_party
+msgid "Third-party Service"
+msgstr "Layanan Pihak Ketiga"
+
+#. module: password_manager_store
+#: model:res.groups,name:password_manager_store.group_password_store_admin
+msgid "Password Store Administrator"
+msgstr "Administrator Penyimpan Kata Sandi"
